@@ -1,0 +1,153 @@
+h1.logo.image {
+  text-align: left;
+  margin: 0;
+}
+
+A {
+text-decoration:None !important
+}
+
+.search-input { 
+font-family: trade-gothic-next-condensed !important;  
+text-transform: uppercase; 
+font-size: 10pt; 
+font-weight: 400 !important;
+color: 0000 !important
+}
+
+/* Fixed Header */
+@media screen and (min-width: 641px) {
+header#header {
+   position: fixed;
+   top: 0;
+   width: 90%;
+   padding: 0px;
+   z-index: 999;
+   background: #ffffff !important;
+  opacity: 100%;
+}
+div#pageWrapper {
+   margin-top: 250px;
+}
+.sqs-block.search-block.sqs-block-search {
+  min-width: 250px;
+}
+}
+
+@media screen and (min-width: 1024px) {
+header#header{
+  padding: 0;
+}
+nav.main-nav{
+  padding: 14px !important;
+}
+div#site {
+padding: 10px 80px !important;
+}
+#iframe_modal {
+  width: 60%;
+}
+}
+
+
+
+.sqs-search-container-item {
+padding: 0px;
+}
+
+.sqs-title{
+margin: 8px 0;
+}
+/* this formats the result of the search on the search page, it hides the details of the search*/
+.sqs-search-container-item .sqs-content .sqs-content {
+  display: none !important;
+}
+
+/* Center the icons on the footer */
+.sqs-svg-icon--list {
+display: flex;
+justify-content: space-evenly;
+margin: 16px;
+}
+
+/* hides the details of the search on the same page */
+.search-results > .search-result > .sqs-search-container-item > .sqs-main-content > .sqs-content {
+display: none;
+}
+
+/* formats the search */
+.search-result {
+padding: 8px !important;
+}
+
+/* styling of the custom form element */
+#form_modal_wrapper {
+z-index: 1001;
+display: none;
+position: fixed; 
+inset: 0;
+}
+
+#modal_background {
+position: absolute;
+inset: 0;
+background-color: #cfcfcf;
+filter: blur(30px);
+opacity: .8;
+}
+
+#iframe_modal {
+margin: 3% auto;
+width: 80%;
+filter: none;
+border: 1px solid rgb(169, 169, 169);
+z-index: 1;
+}
+
+
+#close_form_button {
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: none;
+border: none;
+}
+
+#productInformationWrapper {
+width: 100%;
+margin: 12px auto;
+img {
+  border: 1px solid rgb(169, 169, 		169);
+  margin: 12px auto;
+}
+}
+
+#request_quote_button {
+padding: 13px 26px;
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: #fff;
+background-color: #8a8c8f;
+border: 1px solid #8a8c8f;
+}
+
+#designerSpan {
+font-size: 14px;
+color: rgba(66, 66, 66, 0.7);
+}
+
+#quote_title_div {
+display: flex;
+justify-content: space-between;
+}
+
+#close_form_after_submit {
+position: absolute;
+top: 25px;
+right: 0;
+background: none;
+border: none;
+}

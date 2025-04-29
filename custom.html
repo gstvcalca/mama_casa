@@ -1,0 +1,128 @@
+<!-- Facebook Pixel Code -->
+<!-- End Facebook Pixel Code -->
+<meta
+  name="facebook-domain-verification"
+  content="o1nfrtoubtuk1xn50fxnkdcxy2ehvj" />
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchBar = document.querySelector(
+      ".sqs-block.search-block.sqs-block-search"
+    );
+    const navUL = document.querySelector("#navBlock > nav > ul");
+    const newLI = document.createElement("li");
+    navUL.appendChild(newLI);
+    const page = document.querySelector("section#page");
+    function checkWidth() {
+      if (!searchBar) {
+        return;
+      }
+      if (window.innerWidth >= 641) {
+        newLI.appendChild(searchBar);
+      } else if (window.innerWidth <= 640) {
+        page.prepend(searchBar);
+      }
+    }
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+
+    const request_quote_button = document.querySelector(
+      "button#request_quote_button"
+    );
+    if (request_quote_button) {
+      // request quote button detected, load form into IFrame and add click event
+      const form_modal = document.createElement("div");
+      const modal_background = document.createElement("div");
+      const iframe = document.createElement("iframe");
+      const currentProductName =
+        document.querySelector("#pageWrapper div > div > h1 > strong") ||
+        document.querySelector("#pageWrapper div > div > h2 > strong");
+      const productName = currentProductName.cloneNode();
+      productName.innerText = currentProductName.innerText;
+      const designer =
+        " by " + currentProductName.parentElement.nextSibling.innerText;
+
+      const designerSpan = document.createElement("span");
+      designerSpan.id = "designerSpan";
+      designerSpan.innerText = designer;
+      const productImg = document.querySelector("#pageWrapper img").cloneNode();
+      form_modal.id = "form_modal_wrapper";
+      modal_background.id = "modal_background";
+
+      iframe.id = "iframe_modal";
+      iframe.src = "/test-form";
+      iframe.onload = () => {
+        const doc = iframe.contentDocument;
+        doc.querySelector("#headerWrapper").remove();
+        doc.querySelector("#footerWrapper").remove();
+        doc.querySelector("#pageWrapper").style.marginTop = "0px";
+        doc.querySelector("section#page").style.padding = "0px";
+        doc.querySelector("div#site").style.padding = "0px";
+        const formWrapper = doc.querySelector("div.form-wrapper");
+        const close_form_button = doc.createElement("button");
+        const currentForm = doc.querySelector("form.react-form-contents");
+        const submitButton = currentForm.querySelector(
+          "button.form-submit-button"
+        );
+        const newDiv = doc.createElement("div");
+        const quoteTitleDiv = doc.createElement("div");
+        const quoteTitleP = doc.createElement("p");
+        const productDiv = doc.querySelector(
+          "div#text-d0771f36-54bc-4b17-b31c-f308e09ea9bf"
+        );
+        const productInput = productDiv.querySelector("input");
+        productDiv.style.display = "none";
+        // this function populate the product field
+        submitButton.addEventListener("mouseover", () => {
+          productInput.value =
+            productName.innerText + " - " + window.location.href;
+          productInput.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+        const signUpSpan = currentForm.querySelector(
+          'input[name="email-yui_3_17_2_1_1743181065641_1755-field"] + span'
+        );
+        signUpSpan.innerText =
+          "Immerse yourself in Mama’s world with our newsletter!";
+        formWrapper.style.position = "relative";
+        close_form_button.id = "close_form_button";
+        close_form_button.innerText = "×";
+        close_form_button.role = "button";
+        close_form_button.tabindex = "0";
+        close_form_button.ariaLabel = "close";
+        close_form_button.fontSize = "16px";
+        quoteTitleP.id = "quote_title_p";
+        quoteTitleP.innerText = "QUOTE REQUEST FORM";
+        quoteTitleDiv.appendChild(quoteTitleP);
+        quoteTitleDiv.appendChild(close_form_button);
+        newDiv.id = "productInformationWrapper";
+        quoteTitleDiv.id = "quote_title_div";
+        newDiv.appendChild(quoteTitleDiv);
+        newDiv.appendChild(productImg);
+        newDiv.appendChild(productName);
+        productName.appendChild(designerSpan);
+        currentForm.prepend(newDiv);
+        const close_form_after_submit = close_form_button.cloneNode(true);
+        close_form_after_submit.id = "close_form_after_submit";
+        close_form_button.addEventListener("click", () => {
+          form_modal.style.display = "none";
+        });
+        close_form_after_submit.addEventListener("click", () => {
+          form_modal.style.display = "none";
+        });
+        formWrapper.appendChild(close_form_after_submit);
+        close_form_after_submit.style.display = "none";
+        submitButton.addEventListener("click", () => {
+          close_form_after_submit.style.display = "block";
+        });
+      };
+
+      form_modal.appendChild(modal_background);
+      form_modal.appendChild(iframe);
+      document.body.appendChild(form_modal);
+
+      request_quote_button.addEventListener("click", () => {
+        form_modal.style.display = "flex";
+      });
+    }
+  });
+</script>
